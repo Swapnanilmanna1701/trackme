@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
+const http = require('http');
+const socketio = require('socket.io');
+const server = http.createServer(app);
+const io = socketio(server);
+
 app.get("/", function(req, res){
     res.send('hello')
 })
-app.listen(3000);
-//3000 is the port number by default
-// just for github
-//commenting out
-//commenting for reference
+server.listen(3000);
